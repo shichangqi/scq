@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/orderDetail/main",
+    "pages/drivingRecord/main",
+    "pages/billDetail/main",
+    "pages/unpaid/main",
+    "pages/chooseCity/main",
+    "pages/index/main",
+    "pages/withdrawal/main",
+    "pages/uncertified/main",
+    "pages/minedevice/main",
+    "pages/authLogin/main",
+    "pages/bindAccount/main",
+    "pages/chooseSchool/main",
+    "pages/chooseExamRoom/main",
+    "pages/personalInfomation/main",
+    "pages/activationDevice/main",
+    "pages/getPhone/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+  
+}

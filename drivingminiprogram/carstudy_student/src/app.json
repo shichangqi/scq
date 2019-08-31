@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/studentBill/main",
+    "pages/mineBill/main",
+    "pages/orderDetail/main",
+    "pages/drivingRecord/main",
+    "pages/mineCoach/main",
+    "pages/personal/main",
+    "pages/loged/main",
+    "pages/index/main",
+    "pages/authLogin/main",
+    "pages/getPhone/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
+}

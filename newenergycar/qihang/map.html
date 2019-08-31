@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+		<meta name="renderer" content="webkit">
+		<meta name="author" content="SemiColonWeb" />
+		<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+		<link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
+		<link rel="stylesheet" href="../css/style.css" type="text/css" />
+		<link rel="stylesheet" href="../css/dark.css" type="text/css" />
+		<link rel="stylesheet" href="../css/font-icons.css" type="text/css" />
+		<link rel="stylesheet" href="../css/animate.css" type="text/css" />
+		<link rel="stylesheet" href="../css/magnific-popup.css" type="text/css" />
+		<link rel="stylesheet" href="../css/responsive.css" type="text/css" />
+		<link rel="stylesheet" href="../css/camera.css" type="text/css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<script src="js/jquery.js"></script>
+	<script src="js/plugins.js"></script>
+		<script type="text/javascript">
+			var cpro_id = "u837382";
+		</script>
+		<script src="js/f.js" type="text/javascript"></script>
+		<title></title>
+	</head>
+	
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=E4cdYsaGhfyTAy9yb1qz1LNVbP1Ho2GI"></script>
+	<body>
+		<div style="width:100%;height:334px;border:#ccc solid 1px;font-size:12px" id="map"></div>
+	</body>
+	
+	<script type="text/javascript">
+									//创建和初始化地图函数：
+									function initMap() {
+										createMap(); //创建地图
+										setMapEvent(); //设置地图事件
+										addMapControl(); //向地图添加控件
+										addMapOverlay(); //向地图添加覆盖物
+									}
+
+									function createMap() {
+										map = new BMap.Map("map");
+										map.centerAndZoom(new BMap.Point(121.354735, 31.131829), 19);
+									}
+
+									function setMapEvent() {
+										map.enableScrollWheelZoom();
+										map.enableKeyboard();
+										map.enableDragging();
+										map.enableDoubleClickZoom()
+									}
+
+									function addClickHandler(target, window) {
+										target.addEventListener("click", function() {
+											target.openInfoWindow(window);
+										});
+									}
+
+									function addMapOverlay() {
+										var markers = [{
+											content: "我的备注",
+											title: " 上海岐航新能源汽车服务有限公司",
+											imageOffset: {
+												width: 0,
+												height: 4
+											},
+											position: {
+												lat: 31.131829,
+												lng: 121.354735
+											}
+										}];
+										for(var index = 0; index < markers.length; index++) {
+											var point = new BMap.Point(markers[index].position.lng, markers[index].position.lat);
+											var marker = new BMap.Marker(point, {
+												icon: new BMap.Icon("http://api.map.baidu.com/img/markers.png", new BMap.Size(40, 24), {
+													offset: new BMap.Size(10, -25), // 指定定位位置
+													imageOffset: new BMap.Size(-21, 0 - index * -25) // 设置图片偏移
+												})
+											});
+											var label = new BMap.Label(markers[index].title, {
+												offset: new BMap.Size(25, 0)
+											});
+											var opts = {
+												width: 200,
+												title: markers[index].title,
+												enableMessage: true
+											};
+											var infoWindow = new BMap.InfoWindow(markers[index].content, opts);
+											marker.setLabel(label);
+											addClickHandler(marker, infoWindow);
+											map.addOverlay(marker);
+										};
+									}
+									//向地图添加控件
+									function addMapControl() {
+										var scaleControl = new BMap.ScaleControl({
+											anchor: BMAP_ANCHOR_BOTTOM_LEFT
+										});
+										scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+										map.addControl(scaleControl);
+										var navControl = new BMap.NavigationControl({
+											anchor: BMAP_ANCHOR_TOP_LEFT,
+											type: BMAP_NAVIGATION_CONTROL_LARGE
+										});
+										map.addControl(navControl);
+										var overviewControl = new BMap.OverviewMapControl({
+											anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+											isOpen: true
+										});
+										map.addControl(overviewControl);
+									}
+									var map;
+									initMap();
+								</script>
+								<script type="text/javascript" src="js/functions.js"></script>
+</html>
